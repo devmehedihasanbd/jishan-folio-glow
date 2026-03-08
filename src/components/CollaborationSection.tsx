@@ -63,23 +63,18 @@ const CollaborationSection = () => {
               ease: "linear",
             },
           }}
-          className="flex gap-8 w-max"
+          className="flex gap-6 w-max"
         >
           {duplicatedPartners.map((partner, i) => (
             <div
               key={`${partner.name}-${i}`}
-              className="flex-shrink-0 glass rounded-xl p-6 flex flex-col items-center justify-center w-44 h-40 group hover:glow-primary transition-all duration-300 cursor-pointer"
+              className="flex-shrink-0 rounded-xl overflow-hidden w-24 h-24 group hover:glow-primary transition-all duration-300 cursor-pointer p-[3px]"
             >
-              <div className="w-16 h-16 rounded-xl overflow-hidden mb-3 group-hover:scale-110 transition-transform duration-300">
-                <img
-                  src={partner.logo}
-                  alt={partner.name}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <span className="text-xs font-medium text-muted-foreground group-hover:text-foreground transition-colors duration-300 text-center leading-tight">
-                {partner.name}
-              </span>
+              <img
+                src={partner.logo}
+                alt={partner.name}
+                className="w-full h-full object-cover rounded-xl"
+              />
             </div>
           ))}
         </motion.div>
