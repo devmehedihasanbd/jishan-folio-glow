@@ -75,7 +75,7 @@ const ContactSection = () => {
           </motion.h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+        <div className="max-w-2xl mx-auto space-y-8">
           {/* Contact links */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}

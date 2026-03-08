@@ -4,6 +4,24 @@ import { Rocket } from "lucide-react";
 
 const projects = [
   {
+    title: "Egro",
+    desc: "Next-generation eCommerce growth platform — scaling digital businesses with smart automation and data-driven strategies.",
+    tags: ["eCommerce", "Growth", "Automation"],
+    status: "Coming Soon",
+  },
+  {
+    title: "Britkcs",
+    desc: "A premium brick-and-mortar to digital bridge — connecting offline businesses to online advertising ecosystems.",
+    tags: ["Digital Ads", "Business Solutions", "Strategy"],
+    status: "Coming Soon",
+  },
+  {
+    title: "Stock Business",
+    desc: "Comprehensive stock and inventory management solution for multi-marketplace digital sellers.",
+    tags: ["Inventory", "Multi-Marketplace", "Management"],
+    status: "Coming Soon",
+  },
+  {
     title: "Multi Platform Account",
     desc: "Unified account management across 9+ global marketplaces — one dashboard, all platforms.",
     tags: ["Multi-Platform", "Account Management", "Global"],
