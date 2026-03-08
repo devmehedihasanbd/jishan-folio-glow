@@ -1,25 +1,25 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import {
-  Facebook,
-  Instagram,
-  MessageCircle,
-  Mail,
+  CreditCard,
+  Gift,
+  Gamepad2,
+  Joystick,
+  BadgeCheck,
   ShieldCheck,
   Target,
-  Building2,
-  BadgeCheck,
+  Headphones,
 } from "lucide-react";
 
 const services = [
-  { icon: Facebook, title: "Facebook Accounts", desc: "High-quality, aged Facebook accounts ready for advertising and business use." },
-  { icon: Instagram, title: "Instagram Accounts", desc: "Verified and trusted Instagram accounts for marketing and brand building." },
-  { icon: MessageCircle, title: "WhatsApp Accounts", desc: "Business-ready WhatsApp accounts for customer engagement and outreach." },
-  { icon: Mail, title: "Gmail Accounts", desc: "Aged and verified Gmail accounts for business operations and marketing." },
-  { icon: ShieldCheck, title: "Verified Business Managers", desc: "Fully verified Meta Business Managers with clean history." },
-  { icon: Target, title: "High-Trust Ad Accounts", desc: "Premium ad accounts with high spending limits and trust scores." },
-  { icon: Building2, title: "Meta Agency Ad Accounts", desc: "Agency-level ad accounts for managing multiple client campaigns." },
-  { icon: BadgeCheck, title: "Verification Support", desc: "Complete account verification assistance for Meta and Google platforms." },
+  { icon: CreditCard, title: "Premium Subscription Accounts", desc: "Netflix, Spotify, Adobe, and 297+ premium software & streaming subscriptions." },
+  { icon: Gift, title: "Gift Cards", desc: "Google Play, iTunes, Amazon, Steam, and more — instant delivery worldwide." },
+  { icon: Gamepad2, title: "Game Top-Up Services", desc: "Fast and secure top-up for PUBG, Free Fire, Genshin Impact, and all popular games." },
+  { icon: Joystick, title: "Gaming Accounts", desc: "High-level gaming accounts across all major platforms and titles." },
+  { icon: BadgeCheck, title: "Verified Social Media Accounts", desc: "Verified Facebook, Instagram, Twitter/X, and TikTok accounts for business use." },
+  { icon: ShieldCheck, title: "Verified Support & Account Recovery", desc: "Professional account verification and recovery services for all platforms." },
+  { icon: Target, title: "Sales Funnel Setup & Conversion Optimization", desc: "End-to-end funnel design and optimization to maximize your ROI." },
+  { icon: Headphones, title: "Order Processing & Customer Support", desc: "Dedicated support and seamless order processing for your business needs." },
 ];
 
 const ServicesSection = () => {

@@ -2,11 +2,14 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
 const skills = [
-  { name: "Media Buying", level: 95 },
-  { name: "Account Management", level: 90 },
-  { name: "Client Handling", level: 92 },
-  { name: "Ad Strategy", level: 88 },
-  { name: "Digital Marketing", level: 85 },
+  { name: "eCommerce Growth", level: 96 },
+  { name: "Meta Ads (Facebook & Instagram)", level: 95 },
+  { name: "Google Ads", level: 90 },
+  { name: "TikTok Ads", level: 88 },
+  { name: "Amazon Seller Marketing", level: 85 },
+  { name: "Media Buying", level: 93 },
+  { name: "Account Management", level: 92 },
+  { name: "Client Handling", level: 90 },
 ];
 
 const SkillsSection = () => {
