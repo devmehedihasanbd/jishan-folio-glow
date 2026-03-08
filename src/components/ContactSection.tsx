@@ -1,13 +1,11 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { Send, MessageCircle, Mail, Globe, ArrowUpRight } from "lucide-react";
+import { Send, MessageCircle, Mail, ArrowUpRight } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 const contactLinks = [
   { icon: MessageCircle, label: "Telegram", value: "@jishanahmedrobin", href: "https://t.me/jishanahmedrobin" },
   { icon: Mail, label: "Email", value: "Jishanahmedrobin@gmail.com", href: "mailto:Jishanahmedrobin@gmail.com" },
-  { icon: MessageCircle, label: "WhatsApp", value: "+880 1XXX-XXXXXX", href: "https://wa.me/8801XXXXXXXXX" },
-  { icon: Globe, label: "Website", value: "jishanahmedrobin.com", href: "#" },
 ];
 
 const ContactSection = () => {
