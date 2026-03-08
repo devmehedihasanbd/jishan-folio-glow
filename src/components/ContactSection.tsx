@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { Send, MessageCircle, Mail, Globe, ArrowUpRight } from "lucide-react";
+import { Send, MessageCircle, Mail, ArrowUpRight } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 const contactLinks = [
