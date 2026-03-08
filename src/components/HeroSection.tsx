@@ -3,10 +3,11 @@ import { motion } from "framer-motion";
 import { ArrowDown, MessageCircle } from "lucide-react";
 
 const roles = [
-  "Digital Account Provider",
+  "Digital Marketer",
+  "eCommerce Specialist",
+  "Premium Account Provider",
   "Ad Solution Expert",
   "Media Buying Specialist",
-  "Account Verification Pro",
 ];
 
 const HeroSection = () => {
@@ -38,7 +39,6 @@ const HeroSection = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Ambient glow */}
       <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-primary/10 blur-[128px]" />
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-accent/10 blur-[128px]" />
 
@@ -58,8 +58,8 @@ const HeroSection = () => {
           transition={{ delay: 0.4, duration: 0.8 }}
           className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6"
         >
-          <span className="text-foreground">Jishan</span>{" "}
-          <span className="gradient-text text-glow">Ahmed</span>
+          <span className="text-foreground">Jishan Ahmed</span>{" "}
+          <span className="gradient-text text-glow">Robin</span>
         </motion.h1>
 
         <motion.div
@@ -76,10 +76,29 @@ const HeroSection = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1 }}
-          className="text-muted-foreground mb-10 max-w-lg mx-auto"
+          className="text-muted-foreground mb-10 max-w-2xl mx-auto"
         >
-          Trusted Digital Account & Ad Solution Provider
+          Professional Digital Marketer, eCommerce Specialist & Premium Digital Account Provider — 7+ Years of Experience
         </motion.p>
+
+        {/* Stats bar */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.1 }}
+          className="flex flex-wrap justify-center gap-8 mb-10"
+        >
+          {[
+            { value: "350K+", label: "Orders Completed" },
+            { value: "9", label: "Marketplaces" },
+            { value: "297+", label: "Account Types" },
+          ].map((stat) => (
+            <div key={stat.label} className="text-center">
+              <p className="text-2xl md:text-3xl font-bold gradient-text">{stat.value}</p>
+              <p className="text-xs text-muted-foreground mt-1">{stat.label}</p>
+            </div>
+          ))}
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -104,7 +123,6 @@ const HeroSection = () => {
         </motion.div>
       </div>
 
-      {/* Scroll indicator */}
       <motion.div
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Infinity }}

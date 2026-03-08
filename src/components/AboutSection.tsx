@@ -1,13 +1,13 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Shield, TrendingUp, Users, Award } from "lucide-react";
+import { ShoppingCart, TrendingUp, Globe, Award } from "lucide-react";
 
 const stats = [
-  { icon: Shield, label: "Accounts Delivered", value: "500+" },
-  { icon: TrendingUp, label: "Ad Campaigns", value: "200+" },
-  { icon: Users, label: "Happy Clients", value: "150+" },
-  { icon: Award, label: "Years Experience", value: "5+" },
+  { icon: ShoppingCart, label: "Orders Completed", value: "350K+" },
+  { icon: Globe, label: "Global Marketplaces", value: "9" },
+  { icon: TrendingUp, label: "Account Types", value: "297+" },
+  { icon: Award, label: "Years Experience", value: "7+" },
 ];
 
 const AboutSection = () => {
@@ -29,14 +29,13 @@ const AboutSection = () => {
               <span className="gradient-text">Digital Solutions</span>
             </h2>
             <p className="text-muted-foreground mb-4 leading-relaxed">
-              I'm Jishan Ahmed, a seasoned digital account and ad solution provider with over 5 years of experience
-              in the industry. I specialize in providing high-quality, verified accounts and premium ad solutions
-              that help businesses scale their digital presence.
+              I'm Jishan Ahmed Robin, a professional digital marketer, eCommerce specialist, and premium digital account provider. With 7+ years of experience, I have successfully completed 350,000+ orders across 9 different global marketplaces.
+            </p>
+            <p className="text-muted-foreground mb-4 leading-relaxed">
+              We provide 297+ types of premium digital accounts, including gaming accounts, gift cards, game top-up services, software subscriptions, verified ad accounts, and verified social media accounts.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              From verified Facebook Business Managers to high-trust ad accounts, I deliver solutions
-              that are reliable, secure, and optimized for performance. My commitment to quality and
-              client satisfaction has earned me the trust of over 150 clients worldwide.
+              Our main expertise is eCommerce growth and paid advertising on platforms like Meta Ads, Google Ads, TikTok Ads, and Amazon Seller Marketing.
             </p>
           </motion.div>
 

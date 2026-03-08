@@ -1,22 +1,48 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { Send, MessageCircle, Mail, Globe, ArrowUpRight } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
 const contactLinks = [
-  { icon: MessageCircle, label: "Telegram", value: "@jishanahmed", href: "#" },
-  { icon: Mail, label: "Email", value: "jishan@example.com", href: "mailto:jishan@example.com" },
-  { icon: MessageCircle, label: "WhatsApp", value: "+880 1XXX-XXXXXX", href: "#" },
-  { icon: Globe, label: "Website", value: "jishanahmed.com", href: "#" },
+  { icon: MessageCircle, label: "Telegram", value: "@jishanahmedrobin", href: "https://t.me/jishanahmedrobin" },
+  { icon: Mail, label: "Email", value: "Jishanahmedrobin@gmail.com", href: "mailto:Jishanahmedrobin@gmail.com" },
+  { icon: MessageCircle, label: "WhatsApp", value: "+880 1XXX-XXXXXX", href: "https://wa.me/8801XXXXXXXXX" },
+  { icon: Globe, label: "Website", value: "jishanahmedrobin.com", href: "#" },
 ];
 
 const ContactSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
-  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [formData, setFormData] = useState({ name: "", email: "", subject: "", message: "" });
+  const { toast } = useToast();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Frontend only — no submission
+
+    if (!formData.name || !formData.email || !formData.message) {
+      toast({
+        title: "Please fill in all required fields",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    const mailtoSubject = encodeURIComponent(formData.subject || `Portfolio Contact from ${formData.name}`);
+    const mailtoBody = encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\nSubject: ${formData.subject}\n\nMessage:\n${formData.message}`
+    );
+
+    window.open(
+      `https://mail.google.com/mail/?view=cm&to=Jishanahmedrobin@gmail.com&su=${mailtoSubject}&body=${mailtoBody}`,
+      "_blank"
+    );
+
+    toast({
+      title: "Opening Gmail...",
+      description: "A new window will open with your message details pre-filled.",
+    });
+
+    setFormData({ name: "", email: "", subject: "", message: "" });
   };
 
   return (
@@ -44,13 +70,15 @@ const ContactSection = () => {
             className="space-y-4"
           >
             <p className="text-muted-foreground mb-8 leading-relaxed">
-              Ready to scale your digital advertising? Reach out through any of these channels
-              and let's discuss how I can help your business grow.
+              Ready to grow your digital business? Reach out through any of these channels
+              and let's discuss how I can help you scale.
             </p>
             {contactLinks.map((link, i) => (
               <motion.a
                 key={link.label}
                 href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 initial={{ opacity: 0, x: -20 }}
                 animate={isInView ? { opacity: 1, x: 0 } : {}}
                 transition={{ delay: 0.3 + i * 0.1 }}
@@ -74,36 +102,49 @@ const ContactSection = () => {
             initial={{ opacity: 0, x: 30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ delay: 0.3 }}
-            className="glass rounded-xl p-8 space-y-6"
+            className="glass rounded-xl p-8 space-y-5"
           >
             <div>
-              <label className="text-sm text-muted-foreground mb-2 block">Your Name</label>
+              <label className="text-sm text-muted-foreground mb-2 block">Your Name *</label>
               <input
                 type="text"
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 className="w-full bg-secondary/50 border border-border rounded-lg px-4 py-3 text-foreground text-sm focus:outline-none focus:ring-1 focus:ring-primary transition-all"
-                placeholder="John Doe"
+                placeholder="Your full name"
+                required
               />
             </div>
             <div>
-              <label className="text-sm text-muted-foreground mb-2 block">Email</label>
+              <label className="text-sm text-muted-foreground mb-2 block">Email *</label>
               <input
                 type="email"
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 className="w-full bg-secondary/50 border border-border rounded-lg px-4 py-3 text-foreground text-sm focus:outline-none focus:ring-1 focus:ring-primary transition-all"
-                placeholder="john@example.com"
+                placeholder="your@email.com"
+                required
               />
             </div>
             <div>
-              <label className="text-sm text-muted-foreground mb-2 block">Message</label>
+              <label className="text-sm text-muted-foreground mb-2 block">Subject</label>
+              <input
+                type="text"
+                value={formData.subject}
+                onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                className="w-full bg-secondary/50 border border-border rounded-lg px-4 py-3 text-foreground text-sm focus:outline-none focus:ring-1 focus:ring-primary transition-all"
+                placeholder="What's this about?"
+              />
+            </div>
+            <div>
+              <label className="text-sm text-muted-foreground mb-2 block">Message *</label>
               <textarea
                 rows={4}
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 className="w-full bg-secondary/50 border border-border rounded-lg px-4 py-3 text-foreground text-sm focus:outline-none focus:ring-1 focus:ring-primary transition-all resize-none"
-                placeholder="Tell me about your project..."
+                placeholder="Tell me about your requirements..."
+                required
               />
             </div>
             <motion.button
@@ -113,7 +154,7 @@ const ContactSection = () => {
               className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground font-medium glow-primary transition-shadow hover:opacity-90"
             >
               <Send size={16} />
-              Send Message
+              Send via Gmail
             </motion.button>
           </motion.form>
         </div>
